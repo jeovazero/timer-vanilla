@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Mono&display=swap"
+      rel="stylesheet"
+    />
+    <title>Static Template</title>
+    <style>
+      h3 {
+        font-family: "Space Mono", monospace;
+        font-size: 2rem;
+      }
+
+      button {
+        font-family: "Space Mono", monospace;
+        font-size: 2rem;
+        border-radius: 8px;
+        background-color: rebeccapurple;
+        color: white;
+        width: 256px;
+        margin: 10px 0;
+        border: 3px solid white;
+        border-right: 3px solid #cd9cff;
+        border-bottom: 3px solid #cd9cff;
+        box-shadow: 0px 3px #cd9cff;
+        transition: width 0.25s ease-in-out;
+      }
+
+      button:hover {
+        background-color: #66329a;
+        cursor: pointer;
+        border-color: white;
+        box-shadow: 0px 1px #cd9cee;
+        width: 266px;
+      }
+
+      #timer {
+        display: flex;
+        width: 100%;
+        justify-content: center;
+        font-size: 4rem;
+        font-family: "Space Mono", monospace;
+      }
+
+      .wrapper {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+      }
+
+      body {
+        color: white;
+        background-color: rebeccapurple;
+      }
+
+      #times {
+        width: 256px;
+        font-family: "Space Mono", monospace;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      #times > div {
+        width: 24px;
+        height: 24px;
+        padding: 10px;
+        font-size: 1rem;
+        text-align: center;
+        border: 1px white dashed;
+        cursor: pointer;
+        border-radius: 8px;
+      }
+      #times > div:hover {
+        background-color: #5f2f90;
+      }
+      #times > div.selected {
+        color: white;
+        font-weight: bolder;
+        font-size: 1rem;
+        border: 4px white solid;
+        border-right: 4px #cd9cee solid;
+        border-bottom: 4px #cd9cee solid;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrapper">
+      <h3>Timer da Mula</h3>
+      <div id="times"></div>
+      <div id="timer">
+        <div id="hours"></div>
+        <div>:</div>
+        <div id="minutes"></div>
+        <div>:</div>
+        <div id="seconds"></div>
+      </div>
+      <button id="start">Começa</button>
+      <button id="qota">Q Ota</button>
+    </div>
+  </body>
+  <script src="./index.js"></script>
+</html>
