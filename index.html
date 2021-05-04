@@ -10,6 +10,13 @@
     />
     <title>Static Template</title>
     <style>
+      :root {
+        --color-primary: rebeccapurple;
+        --color-primary-dark: #5f2f90;
+        --color-primary-light: #cd9cff;
+        --color-primary-lighter: #cd9cee;
+      }
+
       h3 {
         font-family: "Space Mono", monospace;
         font-size: 2rem;
@@ -19,22 +26,22 @@
         font-family: "Space Mono", monospace;
         font-size: 2rem;
         border-radius: 8px;
-        background-color: rebeccapurple;
+        background-color: var(--color-primary);
         color: white;
         width: 256px;
         margin: 10px 0;
         border: 3px solid white;
-        border-right: 3px solid #cd9cff;
-        border-bottom: 3px solid #cd9cff;
-        box-shadow: 0px 3px #cd9cff;
+        border-right: 3px solid var(--color-primary-light);
+        border-bottom: 3px solid var(--color-primary-light);
+        box-shadow: 0px 3px var(--color-primary-light);
         transition: width 0.25s ease-in-out;
       }
 
       button:hover {
-        background-color: #66329a;
+        background-color: var(--color-primary-dark);
         cursor: pointer;
         border-color: white;
-        box-shadow: 0px 1px #cd9cee;
+        box-shadow: 0px 1px var(--color-primary-lighter);
         width: 266px;
       }
 
@@ -54,7 +61,7 @@
 
       body {
         color: white;
-        background-color: rebeccapurple;
+        background-color: var(--color-primary);
       }
 
       #times {
@@ -75,15 +82,15 @@
         border-radius: 8px;
       }
       #times > div:hover {
-        background-color: #5f2f90;
+        background-color: var(--color-primary-dark);
       }
       #times > div.selected {
         color: white;
         font-weight: bolder;
         font-size: 1rem;
         border: 4px white solid;
-        border-right: 4px #cd9cee solid;
-        border-bottom: 4px #cd9cee solid;
+        border-right: 4px var(--color-primary-lighter) solid;
+        border-bottom: 4px var(--color-primary-lighter) solid;
       }
     </style>
   </head>
