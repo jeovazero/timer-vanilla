@@ -1,20 +1,29 @@
 let tickTimer;
-
+let base = 0;
+let goal = 0; // in milli
 onmessage = function (event) {
   let data = event.data;
-  let base = 0;
+
   if (data.type === "STOP") {
     clearTimeout(tickTimer);
     base = 0;
-    console.info("stop!");
-  } else {
+    goal = 0;
+    console.info("stoped!");
+  } else if (data.type === "START") {
+    base = performance.now();
+    goal = data.goal;
+    tickTimer = setInterval(() => {
+      const current = performance.now();
+      const diff = ((current - base) / 1000) >> 0;
+
+      postMessage(diff);
+
+      // just for security :)
+      if (diff > goal) {
+        clearInterval(tickTimer);
+        console.info("goal!");
+      }
+    }, 1000);
     console.info("started!");
-    base = +new Date();
-    const tick = () => {
-      const current = +new Date();
-      postMessage(((current - base) / 1000) >> 0);
-      tickTimer = setTimeout(tick, 1000);
-    };
-    tick();
   }
 };

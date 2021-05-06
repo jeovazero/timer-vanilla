@@ -50,7 +50,7 @@ const renderTimer = ({ goal, elapsed }) => {
 let worker = new Worker("worker.js");
 
 const makeWorkerListener = (goal) => (event) => {
-  renderTimer({ goal, elapsed: event.data });
+  renderTimer({ goal, elapsed: Math.min(event.data, goal) });
   if (goal - event.data <= 0) {
     timerMachine({ type: TIMER_END, msg: goal });
   }
@@ -149,7 +149,7 @@ const timerMachine = (event) => {
   switch (type) {
     case TIMER_RESTART:
       timerMachine({ type: TIMER_RESET, msg });
-      worker.postMessage({ type: "START" });
+      worker.postMessage({ type: "START", goal: msg });
       break;
 
     case TIMER_RESET:
